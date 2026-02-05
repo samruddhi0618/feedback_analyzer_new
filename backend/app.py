@@ -28,7 +28,7 @@ app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'dev-secret-key-change-in-pro
 # Create uploads directory if it doesn't exist
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
-CORS(app, supports_credentials=True, origins=['http://localhost:3000', 'http://127.0.0.1:3000'])
+CORS(app, supports_credentials=True, origins=['http://localhost:3000', 'https://your-project.vercel.app'])
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
