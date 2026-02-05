@@ -6,7 +6,7 @@ const FeedbackList = () => {
   const [feedbacks, setFeedbacks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const [successMessage, setSuccessMessage] = useState(null);
   const [deletingId, setDeletingId] = useState(null);
   const [filters, setFilters] = useState({
     instructor_id: '',
@@ -74,7 +74,11 @@ const FeedbackList = () => {
     }
   };
 
-  
+  const formatDate = (dateString) => {
+    if (!dateString) return 'N/A';
+    const date = new Date(dateString);
+    return date.toLocaleString();
+  };
 
   if (loading) {
     return <div className="loading">Loading feedbacks...</div>;
